@@ -30,7 +30,7 @@ export class Polls extends Component {
 
     componentDidMount() {
         Axios
-            .get(`http://localhost:8000/listPolls`)
+            .get(`https://pollsrender.herokuapp.com//listPolls`)
             .then(res => {
                 this.setState({
                     polls: res.data.result

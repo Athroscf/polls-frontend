@@ -54,7 +54,7 @@ export class AnswerPoll extends Component {
     }
 
     async postData(body) {
-        await Axios(`http://localhost:8000/newAnswer`, {
+        await Axios(`https://pollsrender.herokuapp.com//newAnswer`, {
                 method: 'POST',
                 data: body,
                 headers: {

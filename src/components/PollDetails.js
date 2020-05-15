@@ -44,7 +44,7 @@ export class PollDetails extends Component {
 
     async componentDidMount() {
         await Axios
-            .get(`http://localhost:8000/answerStatistics`)
+            .get(`https://pollsrender.herokuapp.com//answerStatistics`)
             .then(res => {
                 this.setState({
                     first: {

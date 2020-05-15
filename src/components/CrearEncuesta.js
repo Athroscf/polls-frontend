@@ -24,7 +24,7 @@ export class CrearEncuesta extends Component {
         const body = this.state;
         console.log(body);
 
-        Axios(`http://localhost:8000/newPoll`, {
+        Axios(`https://pollsrender.herokuapp.com//newPoll`, {
             method: 'POST',
             data: body,
             headers: {

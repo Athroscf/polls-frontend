@@ -20,7 +20,7 @@ export class Register extends Component {
     async getResponse() {
         const body = this.state;
 
-        await Axios(`http://localhost:8000/newUser`, {
+        await Axios(`https://pollsrender.herokuapp.com//newUser`, {
             method: 'POST',
             data: body,
             headers: {
