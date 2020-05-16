@@ -26,27 +26,31 @@ export class AnswerPoll extends Component {
         Swal.fire({
             text: "Gracias por contestar nuestra encuesta!",
             icon: 'success',
-            showCancelButton: true,
+            // showCancelButton: true,
             cancelButtonText: 'Volver a inicio',
             confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            // cancelButtonColor: '#d33',
             confirmButtonText: 'Ver resultados',
         })
         .then(confirm => {
+            console.log(confirm);
+
             if (confirm) {
                 window.location.href = '/pollDetails';
             }
         })
-        .then(cancel => {
-            if (cancel) {
-                window.location.href = '/';
-            }
-        })
+        // .then(cancel => {
+        //     console.log(cancel);
+
+        //     if (cancel) {
+        //         window.location.href = '/';
+        //     }
+        // })
     }
 
-    errorSwal() {
+    errorSwal(text) {
         Swal.fire({
-            text: "Por favor contesta todas las preguntas",
+            text: text,
             icon: 'warning',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Ok',
@@ -54,7 +58,7 @@ export class AnswerPoll extends Component {
     }
 
     async postData(body) {
-        await Axios(`https://pollsrender.herokuapp.com//newAnswer`, {
+        await Axios(`https://pollsrender.herokuapp.com/newAnswer`, {
                 method: 'POST',
                 data: body,
                 headers: {
@@ -66,7 +70,9 @@ export class AnswerPoll extends Component {
                     this.showSwal()
                 }
             })
-            .catch(this.errorSwal())
+            .catch(
+                this.errorSwal('Porfavor contesta todas las preguntas!')
+            )
     }
 
     handleSubmit = e => {
